@@ -33,15 +33,6 @@
       compile project(':react-native-eth-daemon')
   	```
 
-#### Windows
-[Read it! :D](https://github.com/ReactWindows/react-native)
-
-1. In Visual Studio add the `RNEthDaemon.sln` in `node_modules/react-native-eth-daemon/windows/RNEthDaemon.sln` folder to their solution, reference from their app.
-2. Open up your `MainPage.cs` app
-  - Add `using Eth.Daemon.RNEthDaemon;` to the usings at the top of the file
-  - Add `new RNEthDaemonPackage()` to the `List<IReactPackage>` returned by the `Packages` method
-
-
 ## Usage
 ```javascript
 import RNEthDaemon from 'react-native-eth-daemon';
