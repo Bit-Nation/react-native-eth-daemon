@@ -1,4 +1,6 @@
-cd "ios/Frameworks/Geth.Framework"
+cd ios/Frameworks
+cp -RP Geth.Framework tmp
+cd Geth.Framework
 
 links="Headers Resources Modules Geth"
 

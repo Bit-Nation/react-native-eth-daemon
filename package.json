@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepack": "./scripts/fix_symlinks_ios.sh"
+    "prepack": "sh ./scripts/fix_symlinks_ios.sh",
+    "postpack": "sh ./scripts/restore_from_copy.sh"
   },
   "keywords": [
     "react-native"
