@@ -1,6 +1,7 @@
 
 #import "RNEthDaemon.h"
 #import <Geth/Geth.objc.h>
+#import <React/RCTConvert.h>
 
 @implementation RNEthDaemon
 
