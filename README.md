@@ -8,6 +8,17 @@
 
 `$ react-native link react-native-eth-daemon`
 
+#### Android
+It's necessary to add to "build.gradle(Project)" this:
+```
+  allprojects {
+    ...
+    flatDir {
+      dirs "$rootDir/../node_modules/react-native-eth-daemon/android/geth"
+    }
+  }
+```
+
 ### Manual installation
 
 
@@ -32,15 +43,36 @@
   	```
       compile project(':react-native-eth-daemon')
   	```
+4. It's necessary to add to "build.gradle(Project)" this:
+  ```
+  allprojects {
+    ...
+    flatDir {
+      dirs "$rootDir/../node_modules/react-native-eth-daemon/android/geth"
+    }
+  }
+```
 
 ## Usage
 ```javascript
 import RNEthDaemon from 'react-native-eth-daemon';
 
-// TODO: What to do with the module?
-RNEthDaemon;
-```
-  
+And then use the functions startDaemon/stopDaemon as follow inside your JS:
+
+function startFunction() {
+    RNEthDaemon.startDaemon({
+      enabledEthereum:true/false(boolean),
+      networkID:3(int),
+      enodesNumber:16(int),
+      maxPeers:25(int),
+      enabledWhisper:false/true(boolean)
+    });
+}
+
+function stopFunction() {
+    RNEthDaemon.stopDaemon();
+}
+
 ## Development
 - We are using [this](http://nvie.com/posts/a-successful-git-branching-model/) git workflow. Please make sure to read it.
 - Make sure to prefix your git commit's with an "topic" like to `[git] blacklisted .idea folder`
