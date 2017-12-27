@@ -26,6 +26,7 @@ MERGED from [com.facebook.react:react-native:0.20.1] /Users/Estarrona/_Trabajo/_
 		ADDED from /Users/Estarrona/_Trabajo/_Github/react-native-eth-daemon/android/app/src/main/AndroidManifest.xml:7:22-75
 uses-sdk
 ADDED from /Users/Estarrona/_Trabajo/_Github/react-native-eth-daemon/android/app/src/main/AndroidManifest.xml:9:5-11:41
+MERGED from [:geth:] /Users/Estarrona/_Trabajo/_Github/react-native-eth-daemon/android/app/build/intermediates/exploded-aar/geth/AndroidManifest.xml:2:1-39
 MERGED from [com.facebook.react:react-native:0.20.1] /Users/Estarrona/_Trabajo/_Github/react-native-eth-daemon/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.20.1/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.fresco:fresco:0.8.1] /Users/Estarrona/_Trabajo/_Github/react-native-eth-daemon/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/0.8.1/AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:drawee:0.8.1] /Users/Estarrona/_Trabajo/_Github/react-native-eth-daemon/android/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/0.8.1/AndroidManifest.xml:5:5-7:41
@@ -35,7 +36,6 @@ MERGED from [com.facebook.fresco:fbcore:0.8.1] /Users/Estarrona/_Trabajo/_Github
 MERGED from [com.android.support:recyclerview-v7:23.0.1] /Users/Estarrona/_Trabajo/_Github/react-native-eth-daemon/android/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.0.1/AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:appcompat-v7:23.0.1] /Users/Estarrona/_Trabajo/_Github/react-native-eth-daemon/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:support-v4:23.0.1] /Users/Estarrona/_Trabajo/_Github/react-native-eth-daemon/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/AndroidManifest.xml:20:5-43
-MERGED from [reactlibrary:geth:unspecified] /Users/Estarrona/_Trabajo/_Github/react-native-eth-daemon/android/app/build/intermediates/exploded-aar/reactlibrary/geth/unspecified/AndroidManifest.xml:2:1-39
 	android:targetSdkVersion
 		ADDED from /Users/Estarrona/_Trabajo/_Github/react-native-eth-daemon/android/app/src/main/AndroidManifest.xml:11:9-38
 		INJECTED from /Users/Estarrona/_Trabajo/_Github/react-native-eth-daemon/android/app/src/main/AndroidManifest.xml
