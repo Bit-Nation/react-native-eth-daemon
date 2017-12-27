@@ -1,4 +1,4 @@
-package com.pangea;
+package com.reactlibrary;
 
 import android.util.Log;
 
