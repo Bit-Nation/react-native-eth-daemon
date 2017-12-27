@@ -72,6 +72,7 @@ function startFunction() {
 function stopFunction() {
     RNEthDaemon.stopDaemon();
 }
+```
 
 ## Development
 - We are using [this](http://nvie.com/posts/a-successful-git-branching-model/) git workflow. Please make sure to read it.
