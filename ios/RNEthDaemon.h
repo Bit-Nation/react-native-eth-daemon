@@ -5,7 +5,10 @@
 #import <React/RCTBridgeModule.h>
 #endif
 
-@interface RNEthDaemon : NSObject <RCTBridgeModule>
+#import <Geth/Geth.objc.h>
+
+@interface RNEthDaemon : NSObject <RCTBridgeModule> {
+    GethNode *node;
+}
 
 @end
-  
