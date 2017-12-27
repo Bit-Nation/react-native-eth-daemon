@@ -10,14 +10,14 @@
 
 #### Android
 It's necessary to add to "build.gradle(Project)" this:
-```
-  allprojects {
-    ...
-    flatDir {
-      dirs "$rootDir/../node_modules/react-native-eth-daemon/android/geth"
-    }
-  }
-```
+    ```
+      allprojects {
+        ...
+        flatDir {
+          dirs "$rootDir/../node_modules/react-native-eth-daemon/android/geth"
+        }
+      }
+    ```
 
 ### Manual installation
 
@@ -44,14 +44,14 @@ It's necessary to add to "build.gradle(Project)" this:
       compile project(':react-native-eth-daemon')
   	```
 4. It's necessary to add to "build.gradle(Project)" this:
-  ```
-  allprojects {
-    ...
-    flatDir {
-      dirs "$rootDir/../node_modules/react-native-eth-daemon/android/geth"
-    }
-  }
-```
+    ```
+      allprojects {
+        ...
+        flatDir {
+          dirs "$rootDir/../node_modules/react-native-eth-daemon/android/geth"
+        }
+      }
+    ```
 
 ## Usage
 ```javascript

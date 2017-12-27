@@ -29,7 +29,7 @@ public class RNEthDaemonModule extends ReactContextBaseJavaModule {
 
     @Override
     public String getName() {
-        return "RNEthDaemonModule";
+        return "RNEthDaemon";
     }
 
     @ReactMethod
