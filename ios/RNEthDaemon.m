@@ -17,14 +17,20 @@ RCT_EXPORT_METHOD(startDaemon:(NSDictionary *)config) {
 
     configGeth = GethNewNodeConfig();
     [configGeth setEthereumEnabled: [RCTConvert BOOL:config[@"enabledEthereum"]]];
-    [configGeth setEthereumNetworkID: (long)[RCTConvert NSNumber:config[@"networkID"]]];
-
+    long networkID = (long)[RCTConvert NSNumber:config[@"networkID"]];
+    [configGeth setEthereumNetworkID: networkID];
+    NSString *genesis;
+    if (networkID == 1) {
+        genesis = GethMainnetGenesis();
+    } else {
+        genesis = GethTestnetGenesis();
+    }
+    [configGeth setEthereumGenesis: genesis];
+    
     GethEnodes *enodes = GethNewEnodes((long)[RCTConvert NSNumber:config[@"enodesNumber"]]);
     enodes = GethFoundationBootnodes();
 
     [configGeth setBootstrapNodes:enodes];
-    NSString *genesis = GethTestnetGenesis();
-    [configGeth setEthereumGenesis: genesis];
     [configGeth  setMaxPeers: (long)[RCTConvert NSNumber:config[@"maxPeers"]]];
     [configGeth setWhisperEnabled: [RCTConvert BOOL:config[@"enabledWhisper"]]];
 
