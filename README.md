@@ -9,7 +9,7 @@
 `$ react-native link react-native-eth-daemon`
 
 #### Android
-It's necessary to add to "build.gradle(Project)" this:
+Open the "android" project of your React-Native app in Android Studio and add to "build.gradle(Project)" this:
     ```
       allprojects {
         ...
