@@ -59,18 +59,28 @@ import RNEthDaemon from 'react-native-eth-daemon';
 
 And then use the functions startDaemon/stopDaemon as follow inside your JS:
 
-function startFunction() {
-    RNEthDaemon.startDaemon({
-      enabledEthereum:true/false(boolean),
-      networkID:3(int),
-      enodesNumber:16(int),
-      maxPeers:25(int),
-      enabledWhisper:false/true(boolean)
+async function startFunction() {
+  try {
+    let result = await RNEthDaemon.startDaemon({
+      enabledEthereum:true,
+      networkID:3,
+      enodesNumber:16,
+      maxPeers:25,
+      enabledWhisper:false
     });
+    Alert.alert(result);
+  } catch(e) {
+    Alert.alert('There was a problem starting the Node');
+  }
 }
 
-function stopFunction() {
-    RNEthDaemon.stopDaemon();
+async function stopFunction() {
+  try {
+    let result = await RNEthDaemon.stopDaemon();
+    Alert.alert(result);
+  }  catch(e) {
+    Alert.alert('There was a problem stopping the Node');
+  }
 }
 ```
 

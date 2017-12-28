@@ -2,6 +2,7 @@ package com.reactlibrary;
 
 import android.util.Log;
 
+import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
@@ -33,7 +34,7 @@ public class RNEthDaemonModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void startDaemon(ReadableMap jsonConfig) throws JSONException {
+    public void startDaemon(ReadableMap jsonConfig, Promise promise) throws JSONException {
         Log.d("GethNode", "Starting Geth process" );
 
         NodeConfig nodeConfig = Geth.newNodeConfig();
@@ -70,19 +71,23 @@ public class RNEthDaemonModule extends ReactContextBaseJavaModule {
 
         try {
             node.start();
+            promise.resolve("Node successfully started");
         } catch (Exception e) {
             e.printStackTrace();
+            promise.reject("node_error", e);
         }
 
         Log.d(TAG, "Geth node started");
     }
 
     @ReactMethod
-    public void stopDaemon() {
+    public void stopDaemon(Promise promise) {
         try {
             node.stop();
+            promise.resolve("Node successfully stopped");
         } catch (Exception e) {
             e.printStackTrace();
+            promise.reject("node_error", e);
         }
 
         Log.d(TAG, "Geth node stoped");
