@@ -52,9 +52,9 @@ RCT_REMAP_METHOD(start,
 
     [node start:&error];
     if (error == nil) {
-        resolve(@"Node successfully started");
+        resolve(nil);
     } else {
-        reject(@"node_error", @"Could not start the node", error);
+        reject(@"node_error", error.localizedDescription, error);
     }
 }
 
@@ -66,9 +66,9 @@ RCT_REMAP_METHOD(stop,
     [node stop:&error];
 
     if (error == nil) {
-        resolve(@"Node successfully stopped");
+        resolve(nil);
     } else {
-        reject(@"node_error", @"Could not stop the node", error);
+        reject(@"node_error", error.localizedDescription, error);
     }
 }
 
