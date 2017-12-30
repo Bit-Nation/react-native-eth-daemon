@@ -8,7 +8,6 @@
 
 `$ react-native link react-native-eth-daemon`
 
-#### Android
 Open the "android" project of your React-Native app in Android Studio and add to "build.gradle(Project)" this:
     ```
       allprojects {
@@ -18,6 +17,15 @@ Open the "android" project of your React-Native app in Android Studio and add to
         }
       }
     ```
+
+#### iOS
+
+First add to your project's "Build Phases" the following:
+ - Target Dependencies: RNEthDaemon
+ - Link Binary With Libraries: Geth.framework (you will need to search it inside ../node_modules/react-native-eth-daemon/ios/Frameworks)
+
+Then, add to your project's "Build Settings", into "Framework Search Path":
+$(PROJECT_DIR)/../node_modules/react-native-eth-daemon/ios/Frameworks  (recursive)
 
 ### Manual installation
 
