@@ -68,18 +68,22 @@ async function startFunction() {
       maxPeers:25,
       enabledWhisper:false
     });
-    Alert.alert(result);
+    if (result == null) {
+      Alert.alert('Node successfully started! :D');
+    }
   } catch(e) {
-    Alert.alert('There was a problem starting the Node');
+    Alert.alert(e.message);
   }
 }
 
 async function stopFunction() {
   try {
     let result = await RNEthDaemon.stop();
-    Alert.alert(result);
+    if (result == null) {
+      Alert.alert('Node successfully stopped! :D');
+    }
   }  catch(e) {
-    Alert.alert('There was a problem stopping the Node');
+    Alert.alert(e.message);
   }
 }
 ```

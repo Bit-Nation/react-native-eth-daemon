@@ -71,10 +71,10 @@ public class RNEthDaemonModule extends ReactContextBaseJavaModule {
 
         try {
             node.start();
-            promise.resolve("Node successfully started");
+            promise.resolve(null);
         } catch (Exception e) {
             e.printStackTrace();
-            promise.reject("node_error", e);
+            promise.reject("node_error", e.getLocalizedMessage());
         }
 
         Log.d(TAG, "Geth node started");
@@ -84,10 +84,10 @@ public class RNEthDaemonModule extends ReactContextBaseJavaModule {
     public void stop(Promise promise) {
         try {
             node.stop();
-            promise.resolve("Node successfully stopped");
+            promise.resolve(null);
         } catch (Exception e) {
             e.printStackTrace();
-            promise.reject("node_error", e);
+            promise.reject("node_error", e.getLocalizedMessage());
         }
 
         Log.d(TAG, "Geth node stoped");
