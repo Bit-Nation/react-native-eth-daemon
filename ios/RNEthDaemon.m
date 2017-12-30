@@ -11,13 +11,13 @@
 }
 RCT_EXPORT_MODULE()
 
-RCT_REMAP_METHOD(startDaemon,
+RCT_REMAP_METHOD(start,
                  params:(NSDictionary *)config
                  resolver:(RCTPromiseResolveBlock)resolve
                  rejecter:(RCTPromiseRejectBlock)reject) {
     GethNodeConfig *configGeth;
     NSError *error = nil;
-    
+
     configGeth = GethNewNodeConfig();
     [configGeth setEthereumEnabled: [RCTConvert BOOL:config[@"enabledEthereum"]]];
     long networkID = (long)[RCTConvert NSNumber:config[@"networkID"]];
@@ -29,27 +29,27 @@ RCT_REMAP_METHOD(startDaemon,
         genesis = GethTestnetGenesis();
     }
     [configGeth setEthereumGenesis: genesis];
-    
+
     GethEnodes *enodes = GethNewEnodes((long)[RCTConvert NSNumber:config[@"enodesNumber"]]);
     enodes = GethFoundationBootnodes();
-    
+
     [configGeth setBootstrapNodes:enodes];
     [configGeth  setMaxPeers: (long)[RCTConvert NSNumber:config[@"maxPeers"]]];
     [configGeth setWhisperEnabled: [RCTConvert BOOL:config[@"enabledWhisper"]]];
-    
+
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSURL *rootUrl =[[fileManager
                       URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask]
                      lastObject];
     NSURL *testnetFolderName = [rootUrl URLByAppendingPathComponent:@"ethereum/testnet"];
-    
+
     if (![fileManager fileExistsAtPath:testnetFolderName.path])
         [fileManager createDirectoryAtPath:testnetFolderName.path withIntermediateDirectories:YES attributes:nil error:&error];
-    
+
     NSString *networkDir = [rootUrl.path stringByAppendingString:@"/$TMPDIR"];
     node = GethNewNode(networkDir, configGeth, &error);
     GethSetVerbosity(9);
-    
+
     [node start:&error];
     if (error == nil) {
         resolve(@"Node successfully started");
@@ -58,13 +58,13 @@ RCT_REMAP_METHOD(startDaemon,
     }
 }
 
-RCT_REMAP_METHOD(stopDaemon,
+RCT_REMAP_METHOD(stop,
                  resolver:(RCTPromiseResolveBlock)resolve
                  rejecter:(RCTPromiseRejectBlock)reject) {
-    
+
     NSError *error = nil;
     [node stop:&error];
-    
+
     if (error == nil) {
         resolve(@"Node successfully stopped");
     } else {
