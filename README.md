@@ -8,6 +8,16 @@
 
 `$ react-native link react-native-eth-daemon`
 
+Open the "android" project of your React-Native app in Android Studio and add to "build.gradle(Project)" this:
+    ```
+      allprojects {
+        ...
+        flatDir {
+          dirs "$rootDir/../node_modules/react-native-eth-daemon/android/geth"
+        }
+      }
+    ```
+
 #### iOS
 
 First add to your project's "Build Phases" the following:
@@ -41,13 +51,45 @@ $(PROJECT_DIR)/../node_modules/react-native-eth-daemon/ios/Frameworks  (recursiv
   	```
       compile project(':react-native-eth-daemon')
   	```
+4. It's necessary to add to "build.gradle(Project)" this:
+    ```
+      allprojects {
+        ...
+        flatDir {
+          dirs "$rootDir/../node_modules/react-native-eth-daemon/android/geth"
+        }
+      }
+    ```
 
 ## Usage
 ```javascript
 import RNEthDaemon from 'react-native-eth-daemon';
 
-// TODO: What to do with the module?
-RNEthDaemon;
+And then use the functions startDaemon/stopDaemon as follow inside your JS:
+
+async function startFunction() {
+  try {
+    let result = await RNEthDaemon.startDaemon({
+      enabledEthereum:true,
+      networkID:3,
+      enodesNumber:16,
+      maxPeers:25,
+      enabledWhisper:false
+    });
+    Alert.alert(result);
+  } catch(e) {
+    Alert.alert('There was a problem starting the Node');
+  }
+}
+
+async function stopFunction() {
+  try {
+    let result = await RNEthDaemon.stopDaemon();
+    Alert.alert(result);
+  }  catch(e) {
+    Alert.alert('There was a problem stopping the Node');
+  }
+}
 ```
 
 ## Development

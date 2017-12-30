@@ -12,8 +12,8 @@
   "keywords": [
     "react-native"
   ],
-  "author": "BITNATION",
-  "license": "",
+  "author": "Bitnation",
+  "license": "MIT",
   "peerDependencies": {
     "react-native": "^0.41.2"
   }

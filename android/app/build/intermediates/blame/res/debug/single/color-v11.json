@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/Estarrona/_Trabajo/Bitnation/Code/_Back/React/reactlibrary/android/app/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_dark.xml",
+        "source": "/Users/Estarrona/_Trabajo/Bitnation/Code/_Back/React/reactlibrary/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
+    },
+    {
+        "merged": "/Users/Estarrona/_Trabajo/_Github/react-native-eth-daemon/android/app/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_light.xml",
+        "source": "/Users/Estarrona/_Trabajo/_Github/react-native-eth-daemon/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
+        "merged": "/Users/Estarrona/_Trabajo/Bitnation/Code/_Back/React/reactlibrary/android/app/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_light.xml",
+        "source": "/Users/Estarrona/_Trabajo/Bitnation/Code/_Back/React/reactlibrary/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
+        "merged": "/Users/Estarrona/_Trabajo/_Github/react-native-eth-daemon/android/app/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_dark.xml",
+        "source": "/Users/Estarrona/_Trabajo/_Github/react-native-eth-daemon/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
+    }
+]

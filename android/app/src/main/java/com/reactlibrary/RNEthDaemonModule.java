@@ -1,0 +1,96 @@
+package com.reactlibrary;
+
+import android.util.Log;
+
+import com.facebook.react.bridge.Promise;
+import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.bridge.ReactContextBaseJavaModule;
+import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.ReadableMap;
+
+import org.ethereum.geth.Geth;
+import org.ethereum.geth.Node;
+import org.ethereum.geth.NodeConfig;
+import org.json.JSONException;
+
+import java.io.File;
+
+/**
+ * Created by Estarrona on 22/12/17.
+ */
+
+public class RNEthDaemonModule extends ReactContextBaseJavaModule {
+
+    private Node node;
+    final String TAG = "GethNode";
+
+    public RNEthDaemonModule (ReactApplicationContext reactContext) {
+        super(reactContext);
+    }
+
+    @Override
+    public String getName() {
+        return "RNEthDaemon";
+    }
+
+    @ReactMethod
+    public void startDaemon(ReadableMap jsonConfig, Promise promise) throws JSONException {
+        Log.d("GethNode", "Starting Geth process" );
+
+        NodeConfig nodeConfig = Geth.newNodeConfig();
+        Log.d("GethNode", "New node" );
+
+        nodeConfig.setEthereumEnabled(jsonConfig.getBoolean("enabledEthereum"));
+        nodeConfig.setEthereumDatabaseCache(jsonConfig.getInt("enodesNumber"));
+        nodeConfig.setEthereumNetworkID(jsonConfig.getInt("networkID"));
+        nodeConfig.setMaxPeers(jsonConfig.getInt("maxPeers"));
+        nodeConfig.setWhisperEnabled(jsonConfig.getBoolean("enabledWhisper"));
+
+        String genesis = Geth.testnetGenesis();
+        nodeConfig.setEthereumGenesis(genesis);
+
+        Log.d("GethNode", "Configured" );
+
+        final String root = getReactApplicationContext().getBaseContext().getApplicationInfo().dataDir;
+        final String dataFolder = root + "/.ethereum";
+        Log.d("GethNode", "Starting Geth node in folder: " + dataFolder);
+
+        Log.d("GethNode", "Have the root/folder" );
+
+        try {
+            final File newFile = new File(dataFolder);
+            newFile.mkdir();
+        } catch (Exception e) {
+            Log.e(TAG, "error making folder: " + dataFolder, e);
+        }
+
+        final String networkDir = dataFolder + "/$TMPDIR";
+
+        node = new Node(networkDir, nodeConfig);
+        Log.d(TAG, "Node config " + nodeConfig);
+
+        try {
+            node.start();
+            promise.resolve("Node successfully started");
+        } catch (Exception e) {
+            e.printStackTrace();
+            promise.reject("node_error", e);
+        }
+
+        Log.d(TAG, "Geth node started");
+    }
+
+    @ReactMethod
+    public void stopDaemon(Promise promise) {
+        try {
+            node.stop();
+            promise.resolve("Node successfully stopped");
+        } catch (Exception e) {
+            e.printStackTrace();
+            promise.reject("node_error", e);
+        }
+
+        Log.d(TAG, "Geth node stoped");
+    }
+
+}
