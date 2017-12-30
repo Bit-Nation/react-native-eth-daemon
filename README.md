@@ -8,6 +8,15 @@
 
 `$ react-native link react-native-eth-daemon`
 
+#### iOS
+
+First add to your project's "Build Phases" the following:
+ - Target Dependencies: RNEthDaemon
+ - Link Binary With Libraries: Geth.framework (you will need to search it inside ../node_modules/react-native-eth-daemon/ios/Frameworks)
+
+Then, add to your project's "Build Settings", into "Framework Search Path":
+$(PROJECT_DIR)/../node_modules/react-native-eth-daemon/ios/Frameworks  (recursive)
+
 ### Manual installation
 
 
@@ -40,7 +49,7 @@ import RNEthDaemon from 'react-native-eth-daemon';
 // TODO: What to do with the module?
 RNEthDaemon;
 ```
-  
+
 ## Development
 - We are using [this](http://nvie.com/posts/a-successful-git-branching-model/) git workflow. Please make sure to read it.
 - Make sure to prefix your git commit's with an "topic" like to `[git] blacklisted .idea folder`
