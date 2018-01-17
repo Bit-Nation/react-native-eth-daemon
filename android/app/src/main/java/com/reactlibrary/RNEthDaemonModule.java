@@ -34,7 +34,7 @@ public class RNEthDaemonModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void startDaemon(ReadableMap jsonConfig, Promise promise) throws JSONException {
+    public void start(ReadableMap jsonConfig, Promise promise) throws JSONException {
         Log.d("GethNode", "Starting Geth process" );
 
         NodeConfig nodeConfig = Geth.newNodeConfig();
@@ -71,23 +71,23 @@ public class RNEthDaemonModule extends ReactContextBaseJavaModule {
 
         try {
             node.start();
-            promise.resolve("Node successfully started");
+            promise.resolve(null);
         } catch (Exception e) {
             e.printStackTrace();
-            promise.reject("node_error", e);
+            promise.reject("node_error", e.getLocalizedMessage());
         }
 
         Log.d(TAG, "Geth node started");
     }
 
     @ReactMethod
-    public void stopDaemon(Promise promise) {
+    public void stop(Promise promise) {
         try {
             node.stop();
-            promise.resolve("Node successfully stopped");
+            promise.resolve(null);
         } catch (Exception e) {
             e.printStackTrace();
-            promise.reject("node_error", e);
+            promise.reject("node_error", e.getLocalizedMessage());
         }
 
         Log.d(TAG, "Geth node stoped");

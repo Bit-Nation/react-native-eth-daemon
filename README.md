@@ -74,25 +74,29 @@ And then use the functions startDaemon/stopDaemon as follow inside your JS:
 
 async function startFunction() {
   try {
-    let result = await RNEthDaemon.startDaemon({
+    let result = await RNEthDaemon.start({
       enabledEthereum:true,
       networkID:3,
       enodesNumber:16,
       maxPeers:25,
       enabledWhisper:false
     });
-    Alert.alert(result);
+    if (result == null) {
+      Alert.alert('Node successfully started! :D');
+    }
   } catch(e) {
-    Alert.alert('There was a problem starting the Node');
+    Alert.alert(e.message);
   }
 }
 
 async function stopFunction() {
   try {
-    let result = await RNEthDaemon.stopDaemon();
-    Alert.alert(result);
+    let result = await RNEthDaemon.stop();
+    if (result == null) {
+      Alert.alert('Node successfully stopped! :D');
+    }
   }  catch(e) {
-    Alert.alert('There was a problem stopping the Node');
+    Alert.alert(e.message);
   }
 }
 ```
