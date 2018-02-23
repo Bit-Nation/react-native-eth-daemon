@@ -80,12 +80,12 @@
         "source": "/Users/Estarrona/_Trabajo/_Github/react-native-eth-daemon/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-xxhdpi/abc_list_pressed_holo_dark.9.png"
     },
     {
-        "merged": "/Users/Estarrona/_Trabajo/_Github/react-native-eth-daemon/android/app/build/intermediates/res/merged/androidTest/debug/drawable-xxhdpi/abc_popup_background_mtrl_mult.9.png",
-        "source": "/Users/Estarrona/_Trabajo/_Github/react-native-eth-daemon/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-xxhdpi/abc_popup_background_mtrl_mult.9.png"
-    },
-    {
         "merged": "/Users/Estarrona/_Trabajo/_Github/react-native-eth-daemon/android/app/build/intermediates/res/merged/androidTest/debug/drawable-xxhdpi/abc_ab_share_pack_mtrl_alpha.9.png",
         "source": "/Users/Estarrona/_Trabajo/_Github/react-native-eth-daemon/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-xxhdpi/abc_ab_share_pack_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/Estarrona/_Trabajo/_Github/react-native-eth-daemon/android/app/build/intermediates/res/merged/androidTest/debug/drawable-xxhdpi/abc_popup_background_mtrl_mult.9.png",
+        "source": "/Users/Estarrona/_Trabajo/_Github/react-native-eth-daemon/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-xxhdpi/abc_popup_background_mtrl_mult.9.png"
     },
     {
         "merged": "/Users/Estarrona/_Trabajo/_Github/react-native-eth-daemon/android/app/build/intermediates/res/merged/androidTest/debug/drawable-xxhdpi/abc_ic_menu_selectall_mtrl_alpha.png",

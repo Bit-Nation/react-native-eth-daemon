@@ -542,7 +542,7 @@ the current pending state of the backend blockchain. There is no guarantee that 
 the true gas limit requirement as other transactions may be added or removed by miners,
 but it should provide a basis for setting a reasonable default.
  */
-- (GethBigInt*)estimateGas:(GethContext*)ctx msg:(GethCallMsg*)msg error:(NSError**)error;
+- (BOOL)estimateGas:(GethContext*)ctx msg:(GethCallMsg*)msg gas:(int64_t*)gas error:(NSError**)error;
 /**
  * FilterLogs executes a filter query.
  */
@@ -1257,8 +1257,8 @@ a sufficient amount of computation has been carried out on a block.
 - (NSData*)encodeRLP:(NSError**)error;
 - (GethBloom*)getBloom;
 - (GethAddress*)getContractAddress;
-- (GethBigInt*)getCumulativeGasUsed;
-- (GethBigInt*)getGasUsed;
+- (int64_t)getCumulativeGasUsed;
+- (int64_t)getGasUsed;
 - (GethLogs*)getLogs;
 - (NSData*)getPostState;
 - (GethHash*)getTxHash;
@@ -1399,7 +1399,7 @@ valid Ethereum transaction.
 /**
  * NewTransaction creates a new transaction with the given properties.
  */
-- (instancetype)init:(int64_t)nonce to:(GethAddress*)to amount:(GethBigInt*)amount gasLimit:(GethBigInt*)gasLimit gasPrice:(GethBigInt*)gasPrice data:(NSData*)data;
+- (instancetype)init:(int64_t)nonce to:(GethAddress*)to amount:(GethBigInt*)amount gasLimit:(int64_t)gasLimit gasPrice:(GethBigInt*)gasPrice data:(NSData*)data;
 /**
  * NewTransactionFromJSON parses a transaction from an JSON data dump.
  */
@@ -1682,7 +1682,7 @@ FOUNDATION_EXPORT GethTopics* GethNewTopicsEmpty(void);
 /**
  * NewTransaction creates a new transaction with the given properties.
  */
-FOUNDATION_EXPORT GethTransaction* GethNewTransaction(int64_t nonce, GethAddress* to, GethBigInt* amount, GethBigInt* gasLimit, GethBigInt* gasPrice, NSData* data);
+FOUNDATION_EXPORT GethTransaction* GethNewTransaction(int64_t nonce, GethAddress* to, GethBigInt* amount, int64_t gasLimit, GethBigInt* gasPrice, NSData* data);
 
 /**
  * NewTransactionFromJSON parses a transaction from an JSON data dump.
