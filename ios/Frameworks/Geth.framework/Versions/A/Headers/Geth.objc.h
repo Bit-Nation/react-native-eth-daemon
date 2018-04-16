@@ -304,11 +304,6 @@ selects base 2. Otherwise the selected base is 10.
 - (GethHash*)getTxHash;
 - (GethHash*)getUncleHash;
 - (GethHeaders*)getUncles;
-/**
- * String implements the fmt.Stringer interface to print some semi-meaningful
-data dump of the block for debugging purposes.
- */
-- (NSString*)string;
 @end
 
 /**
@@ -542,7 +537,7 @@ the current pending state of the backend blockchain. There is no guarantee that 
 the true gas limit requirement as other transactions may be added or removed by miners,
 but it should provide a basis for setting a reasonable default.
  */
-- (GethBigInt*)estimateGas:(GethContext*)ctx msg:(GethCallMsg*)msg error:(NSError**)error;
+- (BOOL)estimateGas:(GethContext*)ctx msg:(GethCallMsg*)msg gas:(int64_t*)gas error:(NSError**)error;
 /**
  * FilterLogs executes a filter query.
  */
@@ -791,11 +786,6 @@ no sync currently running, it returns nil.
 - (int64_t)getTime;
 - (GethHash*)getTxHash;
 - (GethHash*)getUncleHash;
-/**
- * String implements the fmt.Stringer interface to print some semi-meaningful
-data dump of the header for debugging purposes.
- */
-- (NSString*)string;
 @end
 
 /**
@@ -1257,16 +1247,11 @@ a sufficient amount of computation has been carried out on a block.
 - (NSData*)encodeRLP:(NSError**)error;
 - (GethBloom*)getBloom;
 - (GethAddress*)getContractAddress;
-- (GethBigInt*)getCumulativeGasUsed;
-- (GethBigInt*)getGasUsed;
+- (int64_t)getCumulativeGasUsed;
+- (int64_t)getGasUsed;
 - (GethLogs*)getLogs;
 - (NSData*)getPostState;
 - (GethHash*)getTxHash;
-/**
- * String implements the fmt.Stringer interface to print some semi-meaningful
-data dump of the transaction receipt for debugging purposes.
- */
-- (NSString*)string;
 @end
 
 /**
@@ -1399,7 +1384,7 @@ valid Ethereum transaction.
 /**
  * NewTransaction creates a new transaction with the given properties.
  */
-- (instancetype)init:(int64_t)nonce to:(GethAddress*)to amount:(GethBigInt*)amount gasLimit:(GethBigInt*)gasLimit gasPrice:(GethBigInt*)gasPrice data:(NSData*)data;
+- (instancetype)init:(int64_t)nonce to:(GethAddress*)to amount:(GethBigInt*)amount gasLimit:(int64_t)gasLimit gasPrice:(GethBigInt*)gasPrice data:(NSData*)data;
 /**
  * NewTransactionFromJSON parses a transaction from an JSON data dump.
  */
@@ -1432,11 +1417,6 @@ valid Ethereum transaction.
 - (GethHash*)getSigHash;
 - (GethAddress*)getTo;
 - (GethBigInt*)getValue;
-/**
- * String implements the fmt.Stringer interface to print some semi-meaningful
-data dump of the transaction for debugging purposes.
- */
-- (NSString*)string;
 - (GethTransaction*)withSignature:(NSData*)sig chainID:(GethBigInt*)chainID error:(NSError**)error;
 @end
 
@@ -1682,7 +1662,7 @@ FOUNDATION_EXPORT GethTopics* GethNewTopicsEmpty(void);
 /**
  * NewTransaction creates a new transaction with the given properties.
  */
-FOUNDATION_EXPORT GethTransaction* GethNewTransaction(int64_t nonce, GethAddress* to, GethBigInt* amount, GethBigInt* gasLimit, GethBigInt* gasPrice, NSData* data);
+FOUNDATION_EXPORT GethTransaction* GethNewTransaction(int64_t nonce, GethAddress* to, GethBigInt* amount, int64_t gasLimit, GethBigInt* gasPrice, NSData* data);
 
 /**
  * NewTransactionFromJSON parses a transaction from an JSON data dump.
