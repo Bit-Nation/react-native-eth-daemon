@@ -15,6 +15,6 @@
   "author": "Bitnation",
   "license": "MIT",
   "peerDependencies": {
-    "react-native": "^0.58.4"
+    "react-native": "^0.54.0"
   }
 }
